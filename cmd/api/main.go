@@ -9,12 +9,15 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-func main()  {
+
+func main(){
+
 	log.SetReportCaller(true)
 	var r *chi.Mux = chi.NewRouter()
 	handlers.Handler(r)
 
-	fmt.Println("Starting GO API service....")
+	fmt.Println("Starting GO API service...")
+
 	fmt.Println(`
  ______     ______        ______     ______   __    
 /\  ___\   /\  __ \      /\  __ \   /\  == \ /\ \   
@@ -22,8 +25,9 @@ func main()  {
  \ \_____\  \ \_____\     \ \_\ \_\  \ \_\    \ \_\ 
   \/_____/   \/_____/      \/_/\/_/   \/_/     \/_/ `)
 
-  err := http.ListenAndServe("localhost:8080", r)
+  err := http.ListenAndServe("localhost:8000", r)
   if err != nil {
-	log.Error(err)
+	  log.Error(err)
   }
+  
 }
